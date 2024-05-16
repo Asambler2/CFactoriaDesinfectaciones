@@ -10,7 +10,7 @@ namespace CFactoriaDesinfectaciones.ResultadosEmpresa
 {
     public class Resultado : IResultados
     {
-        public List<ServicioEquipo> Servicios { get; set; }
+        public IDictionary<string, ServicioEquipo> Servicios { get; set; } = new Dictionary<string, ServicioEquipo>();
         public Gerente ElGerente { get; set; }
         public float GastoTotalEmpresa { get; set; } = 0;
         public float IngresoTotalEmpresa { get; set; } = 0;
@@ -21,7 +21,7 @@ namespace CFactoriaDesinfectaciones.ResultadosEmpresa
 
         public void AddServicio(ServicioEquipo Servicio)
         {
-            Servicios.Add(Servicio);
+            Servicios.Add(Servicio.NombreServicio, Servicio);
             GastoTotalEmpresa += Servicio.GastoTotalServicio;
             IngresoTotalEmpresa = (float)(this.GastoTotalEmpresa * 1.20);
         }

@@ -1,4 +1,5 @@
-﻿using CFactoriaDesinfectaciones.Recursos;
+﻿using CFactoriaDesinfectaciones.ListaAnimales;
+using CFactoriaDesinfectaciones.Recursos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,15 @@ namespace CFactoriaDesinfectaciones.ListaRecursos
         public void AddRecurso(IRecurso ElRecurso)
         {
             this.ListaDeRecursos.Add(ElRecurso.NombreRecurso, ElRecurso);
+        }
+        public string MostrarListaRecursos()
+        {
+            string Recursos = "";
+            foreach (var Recurso in ListaDeRecursos)
+            {
+                Recursos += "\n" + Recurso.Value.MostrarRecursos();
+            }
+            return $"Lista de recursos y su información: {Recursos}";
         }
     }
 }

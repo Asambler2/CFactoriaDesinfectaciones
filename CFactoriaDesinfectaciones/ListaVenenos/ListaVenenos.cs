@@ -1,4 +1,5 @@
-﻿using CFactoriaDesinfectaciones.Venenos;
+﻿using CFactoriaDesinfectaciones.ListaAnimales;
+using CFactoriaDesinfectaciones.Venenos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,15 @@ namespace CFactoriaDesinfectaciones.ListaVenenos
         public void AddRecurso(IVeneno ElVeneno)
         {
             this.ListaDeVenenos.Add(ElVeneno.Nombre, ElVeneno);
+        }
+        public string MostrarListaVenenos()
+        {
+            string Venenos = "";
+            foreach (var Veneno in ListaDeVenenos)
+            {
+                Venenos += "\n" + Veneno.Value.MostrarVenenos();
+            }
+            return $"Lista de animales y su información: {Venenos}";
         }
     }
 }

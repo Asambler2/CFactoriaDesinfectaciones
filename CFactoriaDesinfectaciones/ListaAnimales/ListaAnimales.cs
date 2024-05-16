@@ -15,5 +15,15 @@ namespace CFactoriaDesinfectaciones.ListaAnimales
         {
             this.ListaDeAnimales.Add(ElAnimal.Nombre, ElAnimal);
         }
+
+        public string MostrarListaAnimales()
+        {
+            string Animales = "";
+            foreach(var Animal in ListaDeAnimales)
+            {
+                Animales += "\n" + Animal.Value.MostrarAnimal();
+            }
+            return $"Lista de animales y su información: {Animales}";
+        }
     }
 }

@@ -26,6 +26,16 @@ namespace CFactoriaDesinfectaciones.Venenos
         {
             CantidadParaMatar.Add(ElAnimal, cantidad);
         }
+        public int CompareTo(object obj)
+        {
+            if (obj == null) return 1;
+
+            Veneno VenenoAComparar = obj as Veneno;
+            if (VenenoAComparar != null)
+                return this.Nombre.CompareTo(VenenoAComparar.Nombre);
+            else
+                throw new ArgumentException("El objeto comparado no es un Veneno");
+        }
 
         public string MostrarVenenos()
         {

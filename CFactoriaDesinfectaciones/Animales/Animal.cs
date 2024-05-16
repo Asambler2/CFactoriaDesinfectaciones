@@ -15,6 +15,17 @@ namespace CFactoriaDesinfectaciones.Animales
             this.Nombre = nombre;
         }
 
+        public int CompareTo(object obj)
+        {
+            if (obj == null) return 1;
+
+            Animal AnimalAComparar = obj as Animal;
+            if (AnimalAComparar != null)
+                return this.Nombre.CompareTo(AnimalAComparar.Nombre);
+            else
+                throw new ArgumentException("El objeto comparado no es un Animal");
+        }
+
         public string MostrarAnimal() 
         { 
             return this.Nombre; 

@@ -1,4 +1,5 @@
 ﻿using CFactoriaDesinfectaciones.Trabajadores;
+using CFactoriaDesinfectaciones.ValidadorSueldo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace CFactoriaDesinfectaciones.FabricaTrabajadores
 {
     public interface IFatoriaTrabajadores
     {
-        public ITrabajador DameTrabajador(int Codigo, string Nombre, float Coste);
+        public ITrabajador DameTrabajador(int Codigo, string Nombre, float Coste, IValidarSueldo ValidadorSueldo);
     }
 }

@@ -13,6 +13,7 @@ namespace CFactoriaDesinfectaciones.Venenos
         public string Nombre { get; set; }
         public string UdMedida { get; set; }
         public float CostePorGramo { get; set; }
+        public int CompareTo(object obj);
         public string MostrarVenenos();
     }
 }

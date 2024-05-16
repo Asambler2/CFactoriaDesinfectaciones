@@ -1,4 +1,5 @@
-﻿using CFactoriaDesinfectaciones.Venenos;
+﻿using CFactoriaDesinfectaciones.ValidadorCosteVeneno;
+using CFactoriaDesinfectaciones.Venenos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace CFactoriaDesinfectaciones.FabricaVeneno
 {
     public interface IFactoriaVeneno
     {
-        public IVeneno DameVeneno(string nombre, string udMedida, float costePorGramo);
+        public IVeneno DameVeneno(string nombre, string udMedida, float costePorGramo, IValidadorCoste ValidadorCoste);
     }
 }

@@ -1,4 +1,5 @@
-﻿using CFactoriaDesinfectaciones.Venenos;
+﻿using CFactoriaDesinfectaciones.ValidadorCosteVeneno;
+using CFactoriaDesinfectaciones.Venenos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace CFactoriaDesinfectaciones.FabricaVeneno
 {
-    public class FactoriaVenenos
+    public class FactoriaVenenos : IFactoriaVeneno
     {
-        public IVeneno DameVeneno(string nombre, string udMedida, float costePorGramo)
+        public IVeneno DameVeneno(string nombre, string udMedida, float costePorGramo, IValidadorCoste ValidadorCoste)
         {
-            return new Veneno(nombre, udMedida, costePorGramo);
+            if(ValidadorCoste.ValidadorCosteVeneno(costePorGramo)) return new Veneno(nombre, udMedida, costePorGramo);
+            return null;
         }
     }
 }
