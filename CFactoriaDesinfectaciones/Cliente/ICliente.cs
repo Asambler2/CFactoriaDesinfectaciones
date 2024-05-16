@@ -12,5 +12,6 @@ namespace CFactoriaDesinfectaciones.Cliente
         public string Telefono { get; set; }
         public string Email { get; set; }
         public string CP { get; set; }
+        public string MostrarCliente();
     }
 }

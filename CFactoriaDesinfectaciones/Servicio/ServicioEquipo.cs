@@ -1,4 +1,5 @@
-﻿using CFactoriaDesinfectaciones.Equipo;
+﻿using CFactoriaDesinfectaciones.Cliente;
+using CFactoriaDesinfectaciones.Equipo;
 using CFactoriaDesinfectaciones.Recursos;
 using CFactoriaDesinfectaciones.Venenos;
 using System;
@@ -12,25 +13,27 @@ namespace CFactoriaDesinfectaciones.Servicio
     public class ServicioEquipo : IServicio
     {
         public string NombreServicio { get; set; }
-        public List<IRecurso> Recursos { get; set; }
-        public EquipoServicio ElEquipo { get; set; }
+        public ICliente ElCliente { get; set; }
+        public IDictionary<string, IRecurso> Recursos { get; set; } = new Dictionary<string, IRecurso>();
+        public IEquipo ElEquipo { get; set; }
 
-        public IDictionary<IVeneno, int> LosVenenos { get; set; }
+        public IDictionary<IVeneno, int> LosVenenos { get; set; } = new Dictionary<IVeneno, int>();
 
         public float GastoTotalServicio { get; set; } = 0;
         public float IngresoTotalServicio { get; set; } = 0;
 
-        public ServicioEquipo(string Nombre, EquipoServicio ElEquipo)
+        public ServicioEquipo(string Nombre, EquipoServicio ElEquipo, ClienteServicio ElCliente)
         {
             this.NombreServicio = Nombre;
             this.ElEquipo = ElEquipo;
+            this.ElCliente = ElCliente;
             GastoTotalServicio += ElEquipo.GastoSalariosTotalEquipo;
             IngresoTotalServicio = (float)(GastoTotalServicio * 1.20);
         }
 
         public void AddRecursos(Recurso ElRecurso)
         {
-            Recursos.Add(ElRecurso);
+            Recursos.Add(ElRecurso.NombreRecurso, ElRecurso);
             GastoTotalServicio += ElRecurso.GastoPorServivio;
             IngresoTotalServicio = (float)(GastoTotalServicio * 1.20);
         }
@@ -49,9 +52,9 @@ namespace CFactoriaDesinfectaciones.Servicio
         public string MostrarListaRecursosServicio()
         {
             string LosRecursos = "Recursos del servicio: ";
-            foreach(Recurso ElRecurso in Recursos)
+            foreach(var ElRecurso in Recursos)
             {
-                LosRecursos += "\n" + ElRecurso.MostrarRecursos();
+                LosRecursos += "\n" + ElRecurso.Value.MostrarRecursos();
             }
             return  LosRecursos;
         }

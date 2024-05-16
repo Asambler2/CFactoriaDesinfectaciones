@@ -9,6 +9,12 @@ namespace CFactoriaDesinfectaciones.Animales
     public class Animal : IAnimal
     {
         public string Nombre { get; set; }
+
+        public Animal(string nombre)
+        {
+            this.Nombre = nombre;
+        }
+
         public string MostrarAnimal() 
         { 
             return this.Nombre; 

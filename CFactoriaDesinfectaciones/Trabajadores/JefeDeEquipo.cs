@@ -9,9 +9,9 @@ namespace CFactoriaDesinfectaciones.Trabajadores
     public class JefeDeEquipo : ITrabajador, IJefe
     {
         public string Nombre { get; set; }
-        public float IngresoPorServicio { get; set; }
-        public float GastoPorTrabajadores { get; set; }
-        public List<ITrabajador> Trabajadores { get; set; }
+        public float IngresoPorServicio { get; set; } = 0;
+        public float GastoPorTrabajadores { get; set; } = 0;
+        public IDictionary<string, ITrabajador> Trabajadores { get; set; } = new Dictionary<string, ITrabajador>();
 
         public JefeDeEquipo(string Nombre, float IngresoPorServicio) {
             this.Nombre = Nombre;
@@ -21,7 +21,7 @@ namespace CFactoriaDesinfectaciones.Trabajadores
 
         public void AddTrabajador(Trabajador ElTrabajador)
         {
-            Trabajadores.Add(ElTrabajador);
+            Trabajadores.Add(ElTrabajador.Nombre, ElTrabajador);
             this.GastoPorTrabajadores += ElTrabajador.IngresoPorServicio;
         }
         public string MostrarTrabajador()
@@ -31,9 +31,9 @@ namespace CFactoriaDesinfectaciones.Trabajadores
         public string MostrarPeonesEquipo()
         {
             string Peones = "";
-            foreach(Trabajador ElTrabajador in Trabajadores)
+            foreach(var ElTrabajador in Trabajadores)
             {
-                Peones += "\n" +ElTrabajador.MostrarTrabajador();
+                Peones += "\n" +ElTrabajador.Value.MostrarTrabajador();
             }
             return Peones;
         }

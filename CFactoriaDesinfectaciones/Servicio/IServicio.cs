@@ -12,9 +12,9 @@ namespace CFactoriaDesinfectaciones.Servicio
     public interface IServicio
     {
         public string NombreServicio { get; set; }
-        public List<IRecurso> Recursos { get; set; }
+        public IDictionary<string, IRecurso> Recursos { get; set; }
         public IDictionary<IVeneno, int> LosVenenos { get; set; }
-        public EquipoServicio ElEquipo { get; set; }
+        public IEquipo ElEquipo { get; set; }
         public float GastoTotalServicio { get; set; }
         public float IngresoTotalServicio { get; set; }
         public void AddRecursos(Recurso ElRecurso);

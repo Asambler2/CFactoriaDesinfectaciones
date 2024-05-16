@@ -6,19 +6,23 @@ using System.Threading.Tasks;
 
 namespace CFactoriaDesinfectaciones.Cliente
 {
-    public class Cliente : ICliente
+    public class ClienteServicio : ICliente
     {
         public string Nombre { get; set; }
         public string Telefono { get; set; }
         public string Email { get; set; }
         public string CP { get; set; }
 
-        public Cliente(string nombre, string telefono, string email, string cP)
+        public ClienteServicio(string nombre, string telefono, string email, string cP)
         {
             Nombre = nombre;
             Telefono = telefono;
             Email = email;
             CP = cP;
+        }
+        public string MostrarCliente()
+        {
+            return $"Nombre ciente: {this.Nombre}, Teléfono: {this.Telefono}, Email: {this.Email}, CP: {this.CP}";
         }
     }
 }

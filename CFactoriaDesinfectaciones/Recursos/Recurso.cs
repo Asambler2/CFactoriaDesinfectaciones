@@ -16,6 +16,16 @@ namespace CFactoriaDesinfectaciones.Recursos
             this.NombreRecurso = NombreRecurso;
             this.GastoPorServivio = Gasto;
         }
+        public  int CompareTo(object obj)
+        {
+            if (obj == null) return 1;
+
+            Recurso RecursoAComparar = obj as Recurso;
+            if (RecursoAComparar != null)
+                return this.NombreRecurso.CompareTo(RecursoAComparar.NombreRecurso);
+            else
+                throw new ArgumentException("El objeto comparado no es un recurso");
+        }
 
         public string MostrarRecursos()
         {
