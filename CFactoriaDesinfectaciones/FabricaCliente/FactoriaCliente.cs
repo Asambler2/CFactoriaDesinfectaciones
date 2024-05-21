@@ -9,9 +9,21 @@ namespace CFactoriaDesinfectaciones.FabricaCliente
 {
     public class FactoriaCliente : IFactoriaCliente
     {
-        public ICliente DameCliente(string nombre, string telefono, string email, string cP)
+        public ICliente DameCliente()
         {
-            return new ClienteServicio(nombre, telefono, email, cP);
+            string Nombre = "";
+            string Telefono = "";
+            string Email = "";
+            string CP = "";
+            Console.WriteLine("Escribe el nombre del cliente:");
+            Nombre = Console.ReadLine();
+            Console.WriteLine("Escribe el telefono del cliente:");
+            Telefono = Console.ReadLine();
+            Console.WriteLine("Escribe el email del cliente:");
+            Email = Console.ReadLine();
+            Console.WriteLine("Escribe el código postal del cliente:");
+            CP = Console.ReadLine();
+            return new ClienteServicio(Nombre, Telefono, Email, CP);
         }
     }
 }

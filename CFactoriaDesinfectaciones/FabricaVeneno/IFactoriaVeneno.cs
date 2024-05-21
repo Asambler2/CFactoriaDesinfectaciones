@@ -10,6 +10,6 @@ namespace CFactoriaDesinfectaciones.FabricaVeneno
 {
     public interface IFactoriaVeneno
     {
-        public IVeneno DameVeneno(string nombre, string udMedida, float costePorGramo, IValidadorCoste ValidadorCoste);
+        public IVeneno DameVeneno(IValidadorCoste ValidadorCoste);
     }
 }

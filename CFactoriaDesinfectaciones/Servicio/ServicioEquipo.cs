@@ -22,7 +22,7 @@ namespace CFactoriaDesinfectaciones.Servicio
         public float GastoTotalServicio { get; set; } = 0;
         public float IngresoTotalServicio { get; set; } = 0;
 
-        public ServicioEquipo(string Nombre, EquipoServicio ElEquipo, ClienteServicio ElCliente)
+        public ServicioEquipo(string Nombre, IEquipo ElEquipo, ICliente ElCliente)
         {
             this.NombreServicio = Nombre;
             this.ElEquipo = ElEquipo;
@@ -31,13 +31,13 @@ namespace CFactoriaDesinfectaciones.Servicio
             IngresoTotalServicio = (float)(GastoTotalServicio * 1.20);
         }
 
-        public void AddRecursos(Recurso ElRecurso)
+        public void AddRecursos(IRecurso ElRecurso)
         {
             Recursos.Add(ElRecurso.NombreRecurso, ElRecurso);
             GastoTotalServicio += ElRecurso.GastoPorServivio;
             IngresoTotalServicio = (float)(GastoTotalServicio * 1.20);
         }
-        public void AddLosVenenos(int Cantidad, Veneno ElVeneno)
+        public void AddLosVenenos(int Cantidad, IVeneno ElVeneno)
         {
             LosVenenos.Add(ElVeneno, Cantidad);
             GastoTotalServicio += ElVeneno.CostePorGramo * Cantidad;

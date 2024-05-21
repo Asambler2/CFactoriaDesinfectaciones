@@ -17,8 +17,8 @@ namespace CFactoriaDesinfectaciones.Servicio
         public IEquipo ElEquipo { get; set; }
         public float GastoTotalServicio { get; set; }
         public float IngresoTotalServicio { get; set; }
-        public void AddRecursos(Recurso ElRecurso);
-        public void AddLosVenenos(int Cantidad, Veneno ElVeneno);
+        public void AddRecursos(IRecurso ElRecurso);
+        public void AddLosVenenos(int Cantidad, IVeneno ElVeneno);
         public string MostrarServicio();
         public string MostrarListaRecursosServicio();
         public string MostrarListaVenenosServicio();

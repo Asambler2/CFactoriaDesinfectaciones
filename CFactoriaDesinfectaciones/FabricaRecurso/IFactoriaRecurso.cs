@@ -9,6 +9,6 @@ namespace CFactoriaDesinfectaciones.FabricaRecurso
 {
     public interface IFactoriaRecurso
     {
-        public IRecurso DameRecurso(string NombreRecurso, float GastoRecurso);
+        public IRecurso DameRecurso();
     }
 }

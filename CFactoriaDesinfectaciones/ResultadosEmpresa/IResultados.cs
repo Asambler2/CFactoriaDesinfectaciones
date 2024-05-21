@@ -10,11 +10,11 @@ namespace CFactoriaDesinfectaciones.ResultadosEmpresa
 {
     public interface IResultados
     {
-        public IDictionary<string, ServicioEquipo> Servicios { get; set; }
+        public IDictionary<string, IServicio> Servicios { get; set; }
         public Gerente ElGerente { get; set; }
         public float GastoTotalEmpresa { get; set; }
         public float IngresoTotalEmpresa { get; set; }
 
-        public void AddServicio(ServicioEquipo servicio);
+        public void AddServicio(IServicio servicio);
     }
 }

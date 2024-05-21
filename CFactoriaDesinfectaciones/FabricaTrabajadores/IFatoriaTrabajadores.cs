@@ -10,6 +10,6 @@ namespace CFactoriaDesinfectaciones.FabricaTrabajadores
 {
     public interface IFatoriaTrabajadores
     {
-        public ITrabajador DameTrabajador(int Codigo, string Nombre, float Coste, IValidarSueldo ValidadorSueldo);
+        public ITrabajador DameTrabajador(int Codigo, IValidarSueldo ValidadorSueldo);
     }
 }

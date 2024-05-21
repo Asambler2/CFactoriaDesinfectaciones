@@ -9,8 +9,14 @@ namespace CFactoriaDesinfectaciones.FabricaRecurso
 {
     public class FactoriaRecurso : IFactoriaRecurso
     {
-        public IRecurso DameRecurso(string NombreRecurso, float GastoRecurso)
+        public IRecurso DameRecurso()
         {
+            string NombreRecurso = "";
+            float GastoRecurso = 0;
+            Console.WriteLine("Escribe el nombre del recurso:");
+            NombreRecurso = Console.ReadLine();
+            Console.WriteLine("Escribe el gasto del recurso:");
+            GastoRecurso = float.Parse(Console.ReadLine());
             return new Recurso(NombreRecurso, GastoRecurso);
         }
     }

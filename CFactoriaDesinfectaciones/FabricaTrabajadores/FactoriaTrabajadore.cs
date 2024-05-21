@@ -10,9 +10,25 @@ namespace CFactoriaDesinfectaciones.FabricaTrabajadores
 {
     public class FactoriaTrabajadore : IFatoriaTrabajadores
     {
-        public ITrabajador DameTrabajador(int Codigo, string Nombre, float Coste, IValidarSueldo ValidadorSueldo)
+        public ITrabajador DameTrabajador(int Codigo, IValidarSueldo ValidadorSueldo)
         {
-            if (ValidadorSueldo.ValidadorSueldo(Coste)) Codigo = 0;
+            string Nombre = "";
+            float Coste = 0;
+            string Categoria = "";
+            switch (Codigo)
+            {
+                case 1: Categoria = "Peon";
+                        break;
+                case 2: Categoria = "Jefe de equipo";
+                        break;
+                case 3: Categoria = "Gerente";
+                        break;
+            }
+            Console.WriteLine($"Introduce el nombre de el Trabajador:");
+            Nombre = Console.ReadLine();
+            Console.WriteLine($"Introduce el sueldo de el Trabajador:");
+            Coste = float.Parse(Console.ReadLine());
+            if (!ValidadorSueldo.ValidadorSueldo(Coste)) Codigo = 0;
             switch(Codigo)
             {
                 case 1: return new Trabajador(Nombre, Coste);

@@ -9,6 +9,6 @@ namespace CFactoriaDesinfectaciones.FabricaCliente
 {
     public interface IFactoriaCliente
     {
-        public ICliente DameCliente(string nombre, string telefono, string email, string cP);
+        public ICliente DameCliente();
     }
 }

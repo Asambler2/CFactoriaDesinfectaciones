@@ -9,6 +9,6 @@ namespace CFactoriaDesinfectaciones.FabricaAlnimales
 {
     public interface IFactoriaAnimales
     {
-        public Animal DameAnimal(string nombre);
+        public Animal DameAnimal();
     }
 }

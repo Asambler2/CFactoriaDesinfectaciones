@@ -9,9 +9,12 @@ namespace CFactoriaDesinfectaciones.FabricaAlnimales
 {
     public class FactoriaAnimales : IFactoriaAnimales
     {
-        public Animal DameAnimal(string nombre)
+        public Animal DameAnimal()
         {
-            return new Animal(nombre);
+            string Nombre = "";
+            Console.WriteLine("Introduce el nombre del animal");
+            Nombre = Console.ReadLine();
+            return new Animal(Nombre);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using CFactoriaDesinfectaciones.Equipo;
+﻿using CFactoriaDesinfectaciones.Cliente;
+using CFactoriaDesinfectaciones.Equipo;
 using CFactoriaDesinfectaciones.Servicio;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,12 @@ namespace CFactoriaDesinfectaciones.FabricaServicio
 {
     public class FactoriaServicio : IFactoriaServicio
     {
-        public IServicio DameServicio(string Nombre, EquipoServicio ElEquipo)
+        public IServicio DameServicio(IEquipo ElEquipo, ICliente Cliente)
         {
-            return new ServicioEquipo(Nombre, ElEquipo);
+            string Nombre = "";
+            Console.WriteLine("Escribe el nombre del servicio:");
+            Nombre = Console.ReadLine();
+            return new ServicioEquipo(Nombre, ElEquipo, Cliente);
         }
     }
 }

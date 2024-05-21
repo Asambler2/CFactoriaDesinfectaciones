@@ -1,4 +1,5 @@
-﻿using CFactoriaDesinfectaciones.Equipo;
+﻿using CFactoriaDesinfectaciones.Cliente;
+using CFactoriaDesinfectaciones.Equipo;
 using CFactoriaDesinfectaciones.Servicio;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,6 @@ namespace CFactoriaDesinfectaciones.FabricaServicio
 {
     public interface IFactoriaServicio
     {
-        public IServicio DameServicio(string Nombre, EquipoServicio ElEquipo);
+        public IServicio DameServicio(IEquipo ElEquipo, ICliente Cliente);
     }
 }
