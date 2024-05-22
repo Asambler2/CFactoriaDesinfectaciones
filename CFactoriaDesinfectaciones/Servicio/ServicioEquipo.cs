@@ -1,6 +1,7 @@
 ﻿using CFactoriaDesinfectaciones.Cliente;
 using CFactoriaDesinfectaciones.Equipo;
 using CFactoriaDesinfectaciones.Recursos;
+using CFactoriaDesinfectaciones.ResultadosEmpresa;
 using CFactoriaDesinfectaciones.Venenos;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace CFactoriaDesinfectaciones.Servicio
         public IDictionary<string, IRecurso> Recursos { get; set; } = new Dictionary<string, IRecurso>();
         public IEquipo ElEquipo { get; set; }
 
-        public IDictionary<IVeneno, int> LosVenenos { get; set; } = new Dictionary<IVeneno, int>();
+        public IDictionary<string, int> LosVenenos { get; set; } = new Dictionary<string, int>();
 
         public float GastoTotalServicio { get; set; } = 0;
         public float IngresoTotalServicio { get; set; } = 0;
@@ -37,10 +38,10 @@ namespace CFactoriaDesinfectaciones.Servicio
             GastoTotalServicio += ElRecurso.GastoPorServivio;
             IngresoTotalServicio = (float)(GastoTotalServicio * 1.20);
         }
-        public void AddLosVenenos(int Cantidad, IVeneno ElVeneno)
+        public void AddLosVenenos(int Cantidad, float CostePorGramo, string NombreVeneno)
         {
-            LosVenenos.Add(ElVeneno, Cantidad);
-            GastoTotalServicio += ElVeneno.CostePorGramo * Cantidad;
+            LosVenenos.Add(NombreVeneno, Cantidad);
+            GastoTotalServicio += CostePorGramo * Cantidad;
             IngresoTotalServicio = (float)(GastoTotalServicio * 1.20);
         }
 
@@ -59,12 +60,12 @@ namespace CFactoriaDesinfectaciones.Servicio
             return  LosRecursos;
         }
 
-        public string MostrarListaVenenosServicio()
+        public string MostrarListaVenenosServicio(IResultados Empresa)
         {
             string Venenos = "Venenos del servicio: ";
             foreach (var ElVeneno in LosVenenos)
             {
-                Venenos += "\n" + ElVeneno.Key.MostrarVenenos() + ", Cantidad utilizada: " + ElVeneno.Value + ", Gasto en el servicio: " + Math.Round(ElVeneno.Key.CostePorGramo * ElVeneno.Value, 2);
+                Venenos += "\n" + ElVeneno.Key + ", Cantidad utilizada: " + ElVeneno.Value + ", Gasto en el servicio: " + Math.Round(Empresa.ListaLosVenenos.ListaVeneno[ElVeneno.Key].CostePorGramo * ElVeneno.Value, 2);
             }
             return Venenos;
         }

@@ -11,14 +11,12 @@ using System.Text;
 using System.Threading.Tasks;
 using CFactoriaDesinfectaciones.ListaRecursos;
 using CFactoriaDesinfectaciones.ListaVenenos;
-using CFactoriaDesinfectaciones.ListaAnimales;
 
 namespace CFactoriaDesinfectaciones.ResultadosEmpresa
 {
     public interface IResultados
     {
         public IDictionary<string, IServicio> Servicios { get; set; }
-        public ListaDeAnimales ListaLosAnimales { get; set; }
         public ListaDeVenenos ListaLosVenenos { get; set; }
         public ListaDeRecursos ListaLosRecursos { get; set; }
         public ListaDeEquipos ListaLosEquipos { get; set; }

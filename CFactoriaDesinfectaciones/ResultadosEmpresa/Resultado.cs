@@ -2,7 +2,6 @@
 using CFactoriaDesinfectaciones.ListaEquipos;
 using CFactoriaDesinfectaciones.ListaRecursos;
 using CFactoriaDesinfectaciones.ListaVenenos;
-using CFactoriaDesinfectaciones.ListaAnimales;
 using CFactoriaDesinfectaciones.Recursos;
 using CFactoriaDesinfectaciones.Servicio;
 using CFactoriaDesinfectaciones.Trabajadores;
@@ -18,7 +17,6 @@ namespace CFactoriaDesinfectaciones.ResultadosEmpresa
     public class Resultado : IResultados
     {
         public IDictionary<string, IServicio> Servicios { get; set; } = new Dictionary<string, IServicio>();
-        public ListaDeAnimales ListaLosAnimales { get; set; } = new ListaDeAnimales(new Dictionary<string, IAnimal>());
         public ListaDeVenenos ListaLosVenenos { get; set; } = new ListaDeVenenos(new Dictionary<string, IVeneno>());
         public ListaDeRecursos ListaLosRecursos { get; set; } = new ListaDeRecursos(new Dictionary<string, IRecurso>());
         public ListaDeEquipos ListaLosEquipos { get; set; } = new ListaDeEquipos(new Dictionary<string, IJefe>());

@@ -11,6 +11,7 @@ using CFactoriaDesinfectaciones.FabricaAlnimales;
 using CFactoriaDesinfectaciones.Animales;
 using CFactoriaDesinfectaciones.FabricaVeneno;
 using CFactoriaDesinfectaciones.ValidadorCosteVeneno;
+using CFactoriaDesinfectaciones.FabricaRecurso;
 
 namespace CFactoriaDesinfectaciones.Menu
 {
@@ -37,19 +38,17 @@ namespace CFactoriaDesinfectaciones.Menu
         {
             Console.WriteLine("Pulse 0 para salir del menu:");
             Console.WriteLine("Pulse 1 para mostrar el Gerente:");
-            Console.WriteLine("Pulse 2 para introducir un animal:");
             Console.WriteLine("Pulse 3 para introducir un veneno:");
-            Console.WriteLine("Pulse 4 para introducir un recurso:");
-            Console.WriteLine("Pulse 5 para introducir un equipo:");
-            Console.WriteLine("Pulse 6 para mostrar los animales registrados en la empresa:");
-            Console.WriteLine("Pulse 7 para mostrar los venenos de la empresa:");
-            Console.WriteLine("Pulse 8 para mostrar los Recursos de la empresa:");
-            Console.WriteLine("Pulse 9 para mostrar los equipos de la empresa:");
-            Console.WriteLine("Pulse 10 para mostrar los Servicios de la empresa:");
-            Console.WriteLine("Pulse 11 para seleccionar un veneno:");
-            Console.WriteLine("Pulse 12 para seleccionar un servicio:");
-            Console.WriteLine("Pulse 13 para seleccionar un equipo:");
-            Console.WriteLine("Pulse 14 para seleccionar un recurso:");
+            Console.WriteLine("Pulse 3 para introducir un recurso:");
+            Console.WriteLine("Pulse 4 para introducir un equipo:");
+            if(Empresa.ListaLosVenenos.ListaVeneno.Count != 0) Console.WriteLine("Pulse 5 para mostrar los venenos de la empresa:");
+            if(Empresa.ListaLosRecursos.ListaRecurso.Count != 0)Console.WriteLine("Pulse 6 para mostrar los Recursos de la empresa:");
+            if(Empresa.ListaLosEquipos.ListaEquipos.Count != 0)Console.WriteLine("Pulse 7 para mostrar los equipos de la empresa:");
+            if(Empresa.Servicios.Count != 0)Console.WriteLine("Pulse 8 para mostrar los Servicios de la empresa:");
+            if(Empresa.ListaLosVenenos.ListaVeneno.Count != 0)Console.WriteLine("Pulse 9 para seleccionar un veneno:");
+            if(Empresa.Servicios.Count != 0)Console.WriteLine("Pulse 10 para seleccionar un servicio:");
+            if(Empresa.ListaLosEquipos.ListaEquipos.Count != 0)Console.WriteLine("Pulse 11 para seleccionar un equipo:");
+            if(Empresa.ListaLosRecursos.ListaRecurso.Count != 0)Console.WriteLine("Pulse 12 para seleccionar un recurso:");
             return int.Parse(Console.ReadLine());
         }
 
@@ -59,12 +58,13 @@ namespace CFactoriaDesinfectaciones.Menu
             {
                 case 1: Empresa.ElGerente.MostrarTrabajador();
                         break;
-                case 2: IFactoriaAnimales FabricaAnimal = new FactoriaAnimales();
-                        Empresa.ListaLosAnimales.AddAnimal(FabricaAnimal.DameAnimal());
-                        break;
-                case 3: IFactoriaVeneno FabricaVeneno = new FactoriaVenenos();
+                case 2: IFactoriaVeneno FabricaVeneno = new FactoriaVenenos();
                         Empresa.ListaLosVenenos.AddVeneno(FabricaVeneno.DameVeneno(new ValidarCoste()));
                         break;
+                case 3: IFactoriaRecurso FabricaRecurso = new FactoriaRecurso();
+                        Empresa.ListaLosRecursos.AddRecurso(FabricaRecurso.DameRecurso());
+                        break;
+                case 4: 
             }
         }
     }

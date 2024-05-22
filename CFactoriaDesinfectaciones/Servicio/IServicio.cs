@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CFactoriaDesinfectaciones.Recursos;
 using CFactoriaDesinfectaciones.Equipo;
 using CFactoriaDesinfectaciones.Venenos;
+using CFactoriaDesinfectaciones.ResultadosEmpresa;
 
 namespace CFactoriaDesinfectaciones.Servicio
 {
@@ -13,14 +14,14 @@ namespace CFactoriaDesinfectaciones.Servicio
     {
         public string NombreServicio { get; set; }
         public IDictionary<string, IRecurso> Recursos { get; set; }
-        public IDictionary<IVeneno, int> LosVenenos { get; set; }
+        public IDictionary<string, int> LosVenenos { get; set; }
         public IEquipo ElEquipo { get; set; }
         public float GastoTotalServicio { get; set; }
         public float IngresoTotalServicio { get; set; }
         public void AddRecursos(IRecurso ElRecurso);
-        public void AddLosVenenos(int Cantidad, IVeneno ElVeneno);
+        public void AddLosVenenos(int Cantidad, float CostePorGramo, string NombreVeneno);
         public string MostrarServicio();
         public string MostrarListaRecursosServicio();
-        public string MostrarListaVenenosServicio();
+        public string MostrarListaVenenosServicio(IResultados Empresa);
     }
 }

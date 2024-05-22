@@ -11,7 +11,7 @@ namespace CFactoriaDesinfectaciones.ListaRecursos
 {
     public class ListaDeRecursos
     {
-        public IDictionary<string, IRecurso> ListaRecurso { get; set; }
+        public IDictionary<string, IRecurso> ListaRecurso { get; set; } = new Dictionary<string, IRecurso>();
 
         public ListaDeRecursos(IDictionary<string, IRecurso> ListaRecurso)
         {

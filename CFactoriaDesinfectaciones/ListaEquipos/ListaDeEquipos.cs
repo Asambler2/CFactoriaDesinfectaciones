@@ -10,7 +10,7 @@ namespace CFactoriaDesinfectaciones.ListaEquipos
 {
     public class ListaDeEquipos
     {
-        public IDictionary<string, IJefe> ListaEquipos { get; set; }
+        public IDictionary<string, IJefe> ListaEquipos { get; set; } = new Dictionary<string, IJefe>();
 
         public ListaDeEquipos(IDictionary<string, IJefe> ListaEquipos) 
         {

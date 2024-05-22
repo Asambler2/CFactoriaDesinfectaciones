@@ -10,9 +10,9 @@ namespace CFactoriaDesinfectaciones.ListaVenenos
 {
     public class ListaDeVenenos
     {
-        IDictionary<string, IVeneno> ListaVeneno { get; set; }
+        public IDictionary<string, IVeneno> ListaVeneno { get; set; } = new Dictionary<string, IVeneno>();
 
-        public ListaDeVenenos(Dictionary<string, IVeneno> ListaVeneno)
+        public ListaDeVenenos(IDictionary<string, IVeneno> ListaVeneno)
         {
             this.ListaVeneno = ListaVeneno;
         }
