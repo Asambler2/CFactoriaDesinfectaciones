@@ -31,7 +31,7 @@ namespace CFactoriaDesinfectaciones.Menu
             Console.WriteLine("Pulse 2 para introducir un animal:");
             Console.WriteLine("Pulse 3 para introducir un veneno:");
             Console.WriteLine("Pulse 4 para introducir un recurso:");
-            Console.WriteLine("Pulse 5 para introducir un :");
+            Console.WriteLine("Pulse 5 para introducir un equipo:");
 
         }
     }

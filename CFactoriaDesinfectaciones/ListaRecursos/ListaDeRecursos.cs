@@ -1,5 +1,6 @@
 ﻿using CFactoriaDesinfectaciones.ListaAnimales;
 using CFactoriaDesinfectaciones.Recursos;
+using CFactoriaDesinfectaciones.Trabajadores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,12 @@ namespace CFactoriaDesinfectaciones.ListaRecursos
 {
     public class ListaDeRecursos
     {
-        IDictionary<string, IRecurso> ListaRecurso = new Dictionary<string, IRecurso>();
+        public IDictionary<string, IRecurso> ListaRecurso { get; set; }
+
+        public ListaDeRecursos(IDictionary<string, IRecurso> ListaRecurso)
+        {
+            this.ListaRecurso = ListaRecurso;
+        }
 
         public void AddRecurso(IRecurso ElRecurso)
         {

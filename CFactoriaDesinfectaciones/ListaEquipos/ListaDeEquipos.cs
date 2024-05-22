@@ -10,7 +10,12 @@ namespace CFactoriaDesinfectaciones.ListaEquipos
 {
     public class ListaDeEquipos
     {
-        IDictionary<string, IJefe> ListaEquipos= new Dictionary<string, IJefe>();
+        public IDictionary<string, IJefe> ListaEquipos { get; set; }
+
+        public ListaDeEquipos(IDictionary<string, IJefe> ListaEquipos) 
+        {
+            this.ListaEquipos = ListaEquipos;
+        }
 
         public void AddEquipo(IJefe ElJefe)
         {
@@ -24,7 +29,7 @@ namespace CFactoriaDesinfectaciones.ListaEquipos
             {
                 Equipos += "\n" + Equipo.Value.MostrarAnimal();
             }
-            return $"Lista de animales y su información: {Animales}";
+            return $"Lista de Equipos y su información: {Equipos}";
         }
     }
 }

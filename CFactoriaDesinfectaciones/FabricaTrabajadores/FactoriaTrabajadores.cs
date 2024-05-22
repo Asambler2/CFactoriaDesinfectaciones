@@ -12,6 +12,7 @@ namespace CFactoriaDesinfectaciones.FabricaTrabajadores
     {
         public ITrabajador DameTrabajador(int Codigo, IValidarSueldo ValidadorSueldo)
         {
+            string NombreEquipo = "";
             string Nombre = "";
             float Coste = 0;
             string Categoria = "";
@@ -24,15 +25,20 @@ namespace CFactoriaDesinfectaciones.FabricaTrabajadores
                 case 3: Categoria = "Gerente";
                         break;
             }
-            Console.WriteLine($"Introduce el nombre de el Trabajador:");
+            if(Codigo == 2)
+            {
+                Console.WriteLine($"Introduce el nombre del equipo:");
+                NombreEquipo = Console.ReadLine();
+            }
+            Console.WriteLine($"Introduce el nombre del {Categoria}:");
             Nombre = Console.ReadLine();
-            Console.WriteLine($"Introduce el sueldo de el Trabajador:");
+            Console.WriteLine($"Introduce el sueldo del {Categoria}:");
             Coste = float.Parse(Console.ReadLine());
             if (!ValidadorSueldo.ValidadorDelSueldo(Coste)) Codigo = 0;
             switch(Codigo)
             {
                 case 1: return new Trabajador(Nombre, Coste);
-                case 2: return new JefeDeEquipo(Nombre, Coste);
+                case 2: return new JefeDeEquipo(NombreEquipo, Nombre, Coste);
                 case 3: return new Gerente(Nombre, Coste);
                 default: return null;
             }

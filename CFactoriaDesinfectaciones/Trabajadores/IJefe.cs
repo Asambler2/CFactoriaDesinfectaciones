@@ -9,8 +9,10 @@ namespace CFactoriaDesinfectaciones.Trabajadores
     public interface IJefe
     {
         public IDictionary<string, ITrabajador> Trabajadores { get; set; }
+        public string NombreEquipo { get; set; }
         public float GastoPorTrabajadores { get; set; }
         public void AddTrabajador(Trabajador ElTrabajador);
         public string MostrarPeonesEquipo();
+        public string MostrarEquipo();
     }
 }
