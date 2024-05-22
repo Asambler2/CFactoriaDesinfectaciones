@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CFactoriaDesinfectaciones.ListaVenenos
 {
-    public class ListaVenenos
+    public class ListaDeVenenos
     {
         IDictionary<string, IVeneno> ListaDeVenenos = new Dictionary<string, IVeneno>();
 

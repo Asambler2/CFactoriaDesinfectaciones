@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CFactoriaDesinfectaciones.FabricaTrabajadores
 {
-    public interface IFatoriaTrabajadores
+    public interface IFactoriaTrabajadores
     {
         public ITrabajador DameTrabajador(int Codigo, IValidarSueldo ValidadorSueldo);
     }

@@ -8,6 +8,6 @@ namespace CFactoriaDesinfectaciones.ValidadorSueldo
 {
     public interface IValidarSueldo
     {
-        public bool ValidadorSueldo(float sueldo);
+        public bool ValidadorDelSueldo(float sueldo);
     }
 }

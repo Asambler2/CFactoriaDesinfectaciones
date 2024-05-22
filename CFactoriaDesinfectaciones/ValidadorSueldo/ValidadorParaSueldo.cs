@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CFactoriaDesinfectaciones.ValidadorSueldo
 {
-    public class ValidadarSueldo : IValidarSueldo
+    public class ValidadorParaSueldo : IValidarSueldo
     {
-        public bool ValidadorSueldo(float sueldo)
+        public bool ValidadorDelSueldo(float sueldo)
         {
             return sueldo <= 50;
         }

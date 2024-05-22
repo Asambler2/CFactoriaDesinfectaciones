@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CFactoriaDesinfectaciones.FabricaTrabajadores
 {
-    public class FactoriaTrabajadore : IFatoriaTrabajadores
+    public class FactoriaTrabajadores : IFactoriaTrabajadores
     {
         public ITrabajador DameTrabajador(int Codigo, IValidarSueldo ValidadorSueldo)
         {
@@ -28,7 +28,7 @@ namespace CFactoriaDesinfectaciones.FabricaTrabajadores
             Nombre = Console.ReadLine();
             Console.WriteLine($"Introduce el sueldo de el Trabajador:");
             Coste = float.Parse(Console.ReadLine());
-            if (!ValidadorSueldo.ValidadorSueldo(Coste)) Codigo = 0;
+            if (!ValidadorSueldo.ValidadorDelSueldo(Coste)) Codigo = 0;
             switch(Codigo)
             {
                 case 1: return new Trabajador(Nombre, Coste);
