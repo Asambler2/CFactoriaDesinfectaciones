@@ -9,17 +9,17 @@ namespace CFactoriaDesinfectaciones.ListaAnimales
 {
     public class ListaDeAnimales
     {
-        IDictionary<string, IAnimal> ListaDeAnimales = new Dictionary<string, IAnimal>();
+        IDictionary<string, IAnimal> ListaAnimal = new Dictionary<string, IAnimal>();
 
-        public void AddRecurso(IAnimal ElAnimal)
+        public void AddAnimal(IAnimal ElAnimal)
         {
-            this.ListaDeAnimales.Add(ElAnimal.Nombre, ElAnimal);
+            this.ListaAnimal.Add(ElAnimal.Nombre, ElAnimal);
         }
 
         public string MostrarListaAnimales()
         {
             string Animales = "";
-            foreach(var Animal in ListaDeAnimales)
+            foreach(var Animal in ListaAnimal)
             {
                 Animales += "\n" + Animal.Value.MostrarAnimal();
             }

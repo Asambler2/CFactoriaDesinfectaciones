@@ -10,16 +10,16 @@ namespace CFactoriaDesinfectaciones.ListaRecursos
 {
     public class ListaDeRecursos
     {
-        IDictionary<string, IRecurso> ListaDeRecursos = new Dictionary<string, IRecurso>();
+        IDictionary<string, IRecurso> ListaRecurso = new Dictionary<string, IRecurso>();
 
         public void AddRecurso(IRecurso ElRecurso)
         {
-            this.ListaDeRecursos.Add(ElRecurso.NombreRecurso, ElRecurso);
+            this.ListaRecurso.Add(ElRecurso.NombreRecurso, ElRecurso);
         }
         public string MostrarListaRecursos()
         {
             string Recursos = "";
-            foreach (var Recurso in ListaDeRecursos)
+            foreach (var Recurso in ListaRecurso)
             {
                 Recursos += "\n" + Recurso.Value.MostrarRecursos();
             }

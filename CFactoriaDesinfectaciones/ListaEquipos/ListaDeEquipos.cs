@@ -10,19 +10,19 @@ namespace CFactoriaDesinfectaciones.ListaEquipos
 {
     public class ListaDeEquipos
     {
-        IDictionary<string, IJefe> ListaDeAnimales = new Dictionary<string, IJefe>();
+        IDictionary<string, IJefe> ListaEquipos= new Dictionary<string, IJefe>();
 
-        public void AddRecurso(IAnimal ElAnimal)
+        public void AddEquipo(IJefe ElJefe)
         {
-            this.ListaDeAnimales.Add(ElAnimal.Nombre, ElAnimal);
+            this.ListaEquipos.Add((ElJefe as ITrabajador).Nombre, ElJefe);
         }
 
-        public string MostrarListaAnimales()
+        public string MostrarListaEquipos()
         {
-            string Animales = "";
-            foreach (var Animal in ListaDeAnimales)
+            string Equipos = "";
+            foreach (var Equipo in ListaEquipos)
             {
-                Animales += "\n" + Animal.Value.MostrarAnimal();
+                Equipos += "\n" + Equipo.Value.MostrarAnimal();
             }
             return $"Lista de animales y su información: {Animales}";
         }

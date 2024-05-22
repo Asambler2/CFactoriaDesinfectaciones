@@ -10,16 +10,16 @@ namespace CFactoriaDesinfectaciones.ListaVenenos
 {
     public class ListaDeVenenos
     {
-        IDictionary<string, IVeneno> ListaDeVenenos = new Dictionary<string, IVeneno>();
+        IDictionary<string, IVeneno> ListaVeneno = new Dictionary<string, IVeneno>();
 
         public void AddRecurso(IVeneno ElVeneno)
         {
-            this.ListaDeVenenos.Add(ElVeneno.Nombre, ElVeneno);
+            this.ListaVeneno.Add(ElVeneno.Nombre, ElVeneno);
         }
         public string MostrarListaVenenos()
         {
             string Venenos = "";
-            foreach (var Veneno in ListaDeVenenos)
+            foreach (var Veneno in ListaVeneno)
             {
                 Venenos += "\n" + Veneno.Value.MostrarVenenos();
             }
